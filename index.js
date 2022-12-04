@@ -1,5 +1,4 @@
-// c724a6eee25e46929d262e94dee683ed
-// AIzaSyCloTfnFWI2UH5Q5uuCtW1HbiwdJM22-nQ
+
 
 const saveNewsItem = (newsItem) => {
     

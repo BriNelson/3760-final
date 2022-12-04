@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Client Tracker</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    
   </head>
   <body>
   
@@ -71,7 +73,7 @@
       </nav>
       <div class="container">
         <div class="container ">
-        
+        <!-- Client Name -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Client Name</label>
@@ -91,7 +93,7 @@
               </div>
             </div>
           </div>
-          
+          <!-- Phone Number -->
           <div class="field is-horizontal">
             <div class="field-label"></div>
             <div class="field-body">
@@ -112,10 +114,23 @@
           </div>
           
           
-          
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Email</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input class="input" type="text" placeholder="Email Address">
+                </div>
+                
+              </div>
+            </div>
+          </div>
+         
 
           
-          
+          <!-- Address Field -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Address</label>
@@ -133,6 +148,7 @@
             <div class="field-label is-normal">
               
             </div>
+            <!-- City -->
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded">
@@ -140,23 +156,46 @@
                   
                 </p>
               </div>
+              <!-- State -->
               <div class="field">
                 <p class="control is-expanded">
                   <input class="input" type="text" placeholder="State">
                   
                 </p>
               </div>
+              <!-- Zip Code -->
               <div class="field">
                 <p class="control is-expanded">
                   <input class="input" type="text" placeholder="Zip">
                   
                 </p>
               </div>
+            </div>  
+          </div>
+
+          <!-- Invoice Paid Radio -->
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Invoice Paid</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    Yes
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="member">
+                    No
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
-          
-          
-          
+
+
+          <!-- Notes Field -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Notes</label>
@@ -174,11 +213,12 @@
             <div class="field-label">
               <!-- Left empty for spacing -->
             </div>
+            <!-- Save Button -->
             <div class="field-body">
               <div class="field">
                 <div class="control">
                   <button class="button is-primary">
-                    Send message
+                    Save
                   </button>
                 </div>
               </div>
@@ -240,7 +280,6 @@
 
   </div>
   
- 
   <script type="text/javascript" src="index.js"></script>
   </body>
 </html>
