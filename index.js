@@ -35,7 +35,57 @@ const searchList = document.querySelector('#searchList')
 const clientListItem = document.createElement('li')
 searchList.appendChild(clientListItem)
 
-const cardItem = document.createElement('div')
+const cardItem = document.createElement('div') 
+cardItem.classList.add('card')
+clientListItem.appendChild(cardItem)
+
+const cardContentItem = document.createElement('div')
+cardContentItem.classlist.add('card-content')
+cardItem.appendChild(cardContentItem)
+
+const cardMediaItem = document.createElement('div')
+cardMediaItem.classList.add('media')
+cardContentItem.appendChild(cardMediaItem)
+
+const mediaLeftSection = document.createElement('div')
+mediaLeftSection.classList.add('media-left')
+cardMediaItem.appendChild(mediaLeftSection)
+
+const clientPortrait = document.createElement('figure')
+clientPortrait.classList.add('image', 'is-64x64')
+mediaLeftSection.appendChild(clientPortrait)
+
+const clientImageTag = document.createElement('img')
+// needs src
+// 
+
+const mediaContentDiv = document.createElement('div')
+mediaContentDiv.classList.add('media-content')
+cardMediaItem.appendChild(mediaContentDiv)
+
+const mediaTitle = document.createElement('p')
+mediaTitle.classList.add('title', 'is-4')
+// text node for client Name
+mediaContentDiv.appendChild(mediaTitle)
+
+const mediaSubtitle = document.createElement('p')
+mediaSubtitle.classList.add('subtitle', 'is-6')
+// needs textNode
+mediaContentDiv.appendChild(mediaSubtitle)
+
+const cardContent = document.createElement('div')
+cardContent.classList.add('content')
+ cardContent.appendChild(cardContent)
+
+
+
+
+
+
+
+
+
+
 
 })
 
