@@ -1,95 +1,87 @@
 
-let clientData = [
+const clientData = [
+  {
+    cat: 'red'
 
-],
+  }
 
+]
 
-const saveNewsItem = (newsItem) => {
+// const saveNewsItem = (newsItem) => {
 
-}
+// }
 
-async function fetchNews () {
-  const newsResponse = await fetch('https://randomuser.me/api/?gender=male')
-  // console.log(catResponse);
-  const newsRes = await newsResponse.json()
-  console.log(newsRes.results[0].picture.large)
-  return newsRes
-}
-
-const getNewsButton = document.querySelector('#callData')
+// const getNewsButton = document.querySelector('#callData')
 
 // getNewsButton.addEventListener('click', () => {
 //     fetchNews()
 // })
 
-const createItem = (itemName, elementTag, classOne, classTwo, classThree, appendItem) => {
-  itemName = document.createElement(elementTag)
-  itemName.classlist.add(classOne, classTwo, classThree)
-  appendItem.appendChild(itemName)
-}
-
-const printSearchResult = () => {
-  clientData.forEach(element =>{
-
-const searchList = document.querySelector('#searchList')
-const clientListItem = document.createElement('li')
-searchList.appendChild(clientListItem)
-
-const cardItem = document.createElement('div') 
-cardItem.classList.add('card')
-clientListItem.appendChild(cardItem)
-
-const cardContentItem = document.createElement('div')
-cardContentItem.classlist.add('card-content')
-cardItem.appendChild(cardContentItem)
-
-const cardMediaItem = document.createElement('div')
-cardMediaItem.classList.add('media')
-cardContentItem.appendChild(cardMediaItem)
-
-const mediaLeftSection = document.createElement('div')
-mediaLeftSection.classList.add('media-left')
-cardMediaItem.appendChild(mediaLeftSection)
-
-const clientPortrait = document.createElement('figure')
-clientPortrait.classList.add('image', 'is-64x64')
-mediaLeftSection.appendChild(clientPortrait)
-
-const clientImageTag = document.createElement('img')
-// needs src
-// 
-
-const mediaContentDiv = document.createElement('div')
-mediaContentDiv.classList.add('media-content')
-cardMediaItem.appendChild(mediaContentDiv)
-
-const mediaTitle = document.createElement('p')
-mediaTitle.classList.add('title', 'is-4')
-// text node for client Name
-mediaContentDiv.appendChild(mediaTitle)
-
-const mediaSubtitle = document.createElement('p')
-mediaSubtitle.classList.add('subtitle', 'is-6')
-// needs textNode
-mediaContentDiv.appendChild(mediaSubtitle)
-
-const cardContent = document.createElement('div')
-cardContent.classList.add('content')
- cardContent.appendChild(cardContent)
-
-
-
-
-
-
-
-
-
-
-
-})
+// const createItem = (itemName, elementTag, classOne, classTwo, classThree, appendItem) => {
+//   itemName = document.createElement(elementTag)
+//   itemName.classlist.add(classOne, classTwo, classThree)
+//   appendItem.appendChild(itemName)
+// }
+const saveClient = () => {
 
 }
+
+const saveElement = (element) => {
+  console.log(element)
+}
+
+const printSearchResult = (arr) => {
+  arr.forEach(element => {
+    const searchList = document.querySelector('#searchList')
+    const clientListItem = document.createElement('li')
+    searchList.appendChild(clientListItem)
+
+    saveElement(element)
+    const cardItem = document.createElement('div')
+    cardItem.classList.add('card')
+    clientListItem.appendChild(cardItem)
+
+    const cardContentItem = document.createElement('div')
+    cardContentItem.classList.add('card-content')
+    cardItem.appendChild(cardContentItem)
+
+    const cardMediaItem = document.createElement('div')
+    cardMediaItem.classList.add('media')
+    cardContentItem.appendChild(cardMediaItem)
+
+    const mediaLeftSection = document.createElement('div')
+    mediaLeftSection.classList.add('media-left')
+    cardMediaItem.appendChild(mediaLeftSection)
+
+    const clientPortrait = document.createElement('figure')
+    clientPortrait.classList.add('image', 'is-64x64')
+    mediaLeftSection.appendChild(clientPortrait)
+
+    const clientImageTag = document.createElement('img')
+    // needs src
+    //
+
+    const mediaContentDiv = document.createElement('div')
+    mediaContentDiv.classList.add('media-content')
+    cardMediaItem.appendChild(mediaContentDiv)
+
+    const mediaTitle = document.createElement('p')
+    mediaTitle.classList.add('title', 'is-4')
+    // text node for client Name
+    mediaContentDiv.appendChild(mediaTitle)
+
+    const mediaSubtitle = document.createElement('p')
+    mediaSubtitle.classList.add('subtitle', 'is-6')
+    // needs textNode
+    mediaContentDiv.appendChild(mediaSubtitle)
+
+    const cardInfoContent = document.createElement('div')
+    cardInfoContent.classList.add('content')
+    cardContentItem.appendChild(cardInfoContent)
+  })
+}
+
+printSearchResult(clientData)
 
 // modal logic from bulma website
 document.addEventListener('DOMContentLoaded', () => {
