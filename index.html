@@ -98,13 +98,13 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="First Name">
+                  <input class="input" type="text" placeholder="First Name" id="firstNameInput">
                   
                 </p>
               </div>
               <div class="field">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="Last Name">
+                  <input class="input" type="text" placeholder="Last Name" id="lastNameInput">
                   
                 </p>
               </div>
@@ -122,7 +122,7 @@
                     </a>
                   </p>
                   <p class="control is-expanded">
-                    <input class="input" type="tel" placeholder="Client phone number">
+                    <input class="input" type="tel" placeholder="Client phone number" id='phoneInput'>
                   </p>
                 </div>
                 
@@ -130,7 +130,7 @@
             </div>
           </div>
           
-          
+          <!-- Email -->
           <div class="field is-horizontal">
             <div class="field-label is-normal">
               <label class="label">Email</label>
@@ -138,7 +138,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input" type="text" placeholder="Email Address">
+                  <input class="input" type="text" placeholder="Email Address" id='emailInput'>
                 </div>
                 
               </div>
@@ -155,7 +155,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input" type="text" placeholder="Street address">
+                  <input class="input" type="text" placeholder="Street address" id='streetInput'>
                 </div>
                 
               </div>
@@ -169,26 +169,28 @@
             <div class="field-body">
               <div class="field">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="City">
+                  <input class="input" type="text" placeholder="City" id='cityInput'>
                   
                 </p>
               </div>
               <!-- State -->
               <div class="field">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="State">
+                  <input class="input" type="text" placeholder="State" id='stateInput'>
                   
                 </p>
               </div>
               <!-- Zip Code -->
               <div class="field">
                 <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="Zip">
+                  <input class="input" type="text" placeholder="Zip" id='zipInput'>
                   
                 </p>
               </div>
             </div>  
           </div>
+
+          <!-- contractor name -->
 
           <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -197,7 +199,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <input class="input" type="text" placeholder="Contractor">
+                  <input class="input" type="text" placeholder="Contractor" id='contractorInput'>
                 </div>
                 
               </div>
@@ -233,7 +235,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <textarea class="textarea" placeholder="Job Notes"></textarea>
+                  <textarea class="textarea" placeholder="Job Notes" id='notesInput'></textarea>
                 </div>
               </div>
             </div>
@@ -247,7 +249,7 @@
             <div class="field-body">
               <div class="field">
                 <div class="control">
-                  <button class="button is-primary">
+                  <button class="button is-primary" id="saveBtn">
                     Save
                   </button>
                 </div>
