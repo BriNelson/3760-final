@@ -1,9 +1,6 @@
 
 const clientData = [
-  {
-    cat: 'red'
-
-  }
+   
 
 ]
 
@@ -22,12 +19,41 @@ const clientData = [
 //   itemName.classlist.add(classOne, classTwo, classThree)
 //   appendItem.appendChild(itemName)
 // }
-const saveClient = () => {
+const saveBtn = document.querySelector('#saveBtn')
 
-}
+saveBtn.addEventListener('click', () => {
+  saveClient(clientData)
+  printSearchResult(clientData)
+  console.log(console.log(clientData))
+})
+const saveClient = (arr) => {
+  const firstName = document.querySelector('#firstNameInput').value
+  const lastName = document.querySelector('#lastNameInput').value
+  const phoneNumber = document.querySelector('#phoneInput').value
+  const email = document.querySelector('#emailInput').value
+  const address = document.querySelector('#streetInput').value
+  const city = document.querySelector('#cityInput').value
+  const state = document.querySelector('#stateInput').value
+  const zipCode = document.querySelector('#zipInput').value
+  const contractor = document.querySelector('#contractorInput').value
+  // const invoicePaid = document.querySelector('').value
+  const notes = document.querySelector('#notesInput').value
 
-const saveElement = (element) => {
-  console.log(element)
+  const newClient = {
+    firstName: firstName,
+    lastName: lastName,
+    phoneNumber: phoneNumber,
+    email: email,
+    address: address,
+    city: city,
+    state: state,
+    zip: zipCode,
+    contractor: contractor,
+    invoicePaid: false,
+    notes: notes
+
+  }
+  arr.push(newClient)
 }
 
 const printSearchResult = (arr) => {
@@ -36,7 +62,6 @@ const printSearchResult = (arr) => {
     const clientListItem = document.createElement('li')
     searchList.appendChild(clientListItem)
 
-    saveElement(element)
     const cardItem = document.createElement('div')
     cardItem.classList.add('card')
     clientListItem.appendChild(cardItem)
@@ -67,7 +92,8 @@ const printSearchResult = (arr) => {
 
     const mediaTitle = document.createElement('p')
     mediaTitle.classList.add('title', 'is-4')
-    // text node for client Name
+    mediaTitle.appendChild(document.createTextNode(element.firstName + ' ' + element.lastName))
+    mediaTitle.appendChild(document.createTextNode(element.lastName))
     mediaContentDiv.appendChild(mediaTitle)
 
     const mediaSubtitle = document.createElement('p')
