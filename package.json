@@ -1,0 +1,24 @@
+{
+  "name": "3760-final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BriNelson/3760-final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BriNelson/3760-final/issues"
+  },
+  "homepage": "https://github.com/BriNelson/3760-final#readme",
+  "dependencies": {
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.8.0"
+  }
+}
