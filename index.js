@@ -1,7 +1,5 @@
 
 const clientData = [
-   
-
 ]
 
 // const saveNewsItem = (newsItem) => {
@@ -93,13 +91,17 @@ const printSearchResult = (arr) => {
     const mediaTitle = document.createElement('p')
     mediaTitle.classList.add('title', 'is-4')
     mediaTitle.appendChild(document.createTextNode(element.firstName + ' ' + element.lastName))
-    mediaTitle.appendChild(document.createTextNode(element.lastName))
     mediaContentDiv.appendChild(mediaTitle)
 
     const mediaSubtitle = document.createElement('p')
     mediaSubtitle.classList.add('subtitle', 'is-6')
-    // needs textNode
+    mediaSubtitle.appendChild(document.createTextNode(element.phoneNumber))
     mediaContentDiv.appendChild(mediaSubtitle)
+
+    const mediaSecondSubtitle = document.createElement('p')
+    mediaSecondSubtitle.classList.add('subtitle', 'is-6')
+    mediaSecondSubtitle.appendChild(document.createTextNode(element.email))
+    mediaContentDiv.appendChild(mediaSecondSubtitle)
 
     const cardInfoContent = document.createElement('div')
     cardInfoContent.classList.add('content')
