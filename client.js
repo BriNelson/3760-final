@@ -5,15 +5,19 @@ const { model, Schema } = pkg;
 
 const Client = new Schema({
     
-    title: String,
-    author: String,
-    key: String,
-    haveRead: Boolean,
-    wantRead: Boolean,
+    firstName: String,
+    lastName: String,
+    phoneNumber: String,
+    address: String,
+    city: String,
+    state: String,
+    zipCode: Number,
+    contractor: String,
+    notes: String
 
 
 
 })
 
 
-export default model("bookSchema", bookSchema);
+export default model("client", Client);
