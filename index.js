@@ -51,6 +51,11 @@ const saveClient = (arr) => {
     notes: notes
 
   }
+
+    (async () => {
+      let results = await fetch(".netlify/functions/save_client").then(response => response.json())
+      console.log(results)
+  })
   arr.push(newClient)
 }
 

@@ -39,11 +39,24 @@ let WorkClient = model("client", WorkClientSchema);
 
 const handler = async (event) => {
  
-  const clients = await WorkClient.find()
+  const test = "test"
+  const clientSave = new WorkClient({
+    firstName: test,
+    lastName: test,
+    phoneNumber: test,
+    address: test,
+    city: test,
+    state: test,
+    zipCode: 12,
+    contractor: test,
+    notes: test
+
+  })
+  clientSave.save().then((result) => { console.log(result) })
   return {
-    statusCode: 200,
-    body: JSON.stringify(clients),
+    statusCode: 200
   }
 }
 
 module.exports = { handler }
+
