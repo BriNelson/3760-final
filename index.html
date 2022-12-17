@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Client Tracker</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    
-    
-  </head>
-  <body>
-  
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Tracker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/dc408010ca.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+
+        <a class="navbar-item">
+          Documentation
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
           </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
+
+          <div class="navbar-dropdown">
             <a class="navbar-item">
-              Home
+              About
             </a>
-      
             <a class="navbar-item">
-              Documentation
+              Jobs
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
+            <a class="navbar-item">
+              Contact
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
           </div>
         </div>
-      </nav>
-      <!-- <iframe
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <iframe
       width="600"
       height="450"
       style="border:0"
@@ -80,267 +82,290 @@
         &q=795 E 620 N,Provo+UT">
     </iframe> -->
 
-      <div class="container">
-        <div class="container ">
-          <div id="modal-js-example" class="modal">
-            <div class="modal-background"></div>
-          
-            <div class="modal-content">
-              <div class="box">
-                <h2 class="title is-2">Add Clients Info</h2>
-        <!-- Client Name -->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Client Name</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="First Name" id="firstNameInput">
-                  
-                </p>
+  <div class="container">
+    <div class="container ">
+      <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+          <div class="box">
+            <h2 class="title is-2">Add Clients Info</h2>
+            <!-- Client Name -->
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Client Name</label>
               </div>
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="Last Name" id="lastNameInput">
-                  
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Phone Number -->
-          <div class="field is-horizontal">
-            <div class="field-label"></div>
-            <div class="field-body">
-              <div class="field is-expanded">
-                <div class="field has-addons">
-                  <p class="control">
-                    <a class="button is-static">
-                      +1
-                    </a>
-                  </p>
+              <div class="field-body">
+                <div class="field">
                   <p class="control is-expanded">
-                    <input class="input" type="tel" placeholder="Client phone number" id='phoneInput'>
+                    <input class="input" type="text" placeholder="First Name" id="firstNameInput">
+
                   </p>
                 </div>
-                
-              </div>
-            </div>
-          </div>
-          
-          <!-- Email -->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Email</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Email Address" id='emailInput'>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-         
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Last Name" id="lastNameInput">
 
-          
-          <!-- Address Field -->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Address</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Street address" id='streetInput'>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              
-            </div>
-            <!-- City -->
-            <div class="field-body">
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="City" id='cityInput'>
-                  
-                </p>
-              </div>
-              <!-- State -->
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="State" id='stateInput'>
-                  
-                </p>
-              </div>
-              <!-- Zip Code -->
-              <div class="field">
-                <p class="control is-expanded">
-                  <input class="input" type="text" placeholder="Zip" id='zipInput'>
-                  
-                </p>
-              </div>
-            </div>  
-          </div>
-
-          <!-- contractor name -->
-
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Contractor</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Contractor" id='contractorInput'>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <!-- Invoice Paid Radio -->
-          <div class="field is-horizontal">
-            <div class="field-label">
-              <label class="label">Invoice Paid</label>
-            </div>
-            <div class="field-body">
-              <div class="field is-narrow">
-                <div class="control">
-                  <label class="radio">
-                    <input type="radio" name="member">
-                    Yes
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="member">
-                    No
-                  </label>
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
+            <!-- Phone Number -->
+            <div class="field is-horizontal">
+              <div class="field-label"></div>
+              <div class="field-body">
+                <div class="field is-expanded">
+                  <div class="field has-addons">
+                    <p class="control">
+                      <a class="button is-static">
+                        +1
+                      </a>
+                    </p>
+                    <p class="control is-expanded">
+                      <input class="input" type="tel" placeholder="Client phone number" id='phoneInput'>
+                    </p>
+                  </div>
 
-
-          <!-- Notes Field -->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Notes</label>
-            </div>
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <textarea class="textarea" placeholder="Job Notes" id='notesInput'></textarea>
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div class="field is-horizontal">
-            <div class="field-label">
-              <!-- Left empty for spacing -->
-            </div>
-            <!-- Save Button -->
-            <div class="field-body">
-              <div class="field">
-                <div class="control">
-                  <button class="button is-primary" id="saveBtn">
-                    Save
-                  </button>
+
+            <!-- Email -->
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Email</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Email Address" id='emailInput'>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </div>
 
 
-          <!-- modal test -->
-          
-                <!-- Your content -->
+
+            <!-- Address Field -->
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Address</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Street address" id='streetInput'>
+                  </div>
+
+                </div>
               </div>
             </div>
-          
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
 
+              </div>
+              <!-- City -->
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="City" id='cityInput'>
 
+                  </p>
+                </div>
+                <!-- State -->
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="State" id='stateInput'>
 
-          <div class="container is-max-desktop">
-            <div class="notification is-primary is-light">
-              <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
-                Add a new client
-              </button>
+                  </p>
+                </div>
+                <!-- Zip Code -->
+                <div class="field">
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="Zip" id='zipInput'>
+
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
 
-  
-        
+            <!-- contractor name -->
+
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Contractor</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Contractor" id='contractorInput'>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <!-- Invoice Paid Radio -->
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Invoice Paid</label>
+              </div>
+              <div class="field-body">
+                <div class="field is-narrow">
+                  <div class="control">
+                    <label class="radio">
+                      <input type="radio" name="member">
+                      Yes
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="member">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Notes Field -->
+            <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Notes</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Job Notes" id='notesInput'></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <!-- Left empty for spacing -->
+              </div>
+              <!-- Save Button -->
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-primary" id="saveBtn">
+                      Save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- modal test -->
+
+            <!-- Your content -->
+          </div>
+        </div>
+
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
+
+
+
+      <div class="container is-max-desktop">
+        <div class="notification is-primary is-light">
+          <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
+            Add a new client
+          </button>
+        </div>
+      </div>
+
+
+
 
       <div class="box">
         <ul id="searchList">
-        <li>
-      <div class="card">
-       
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-64x64">
-                <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">John Smith</p>
-              <p class="subtitle is-6">@johnsmith</p>
-            </div>
-          </div>
-      
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          </div>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="card">
-       
-        <div class="card-content">
-          <div class="media">
-            <div class="media-left">
-              <figure class="image is-64x64">
-                <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4">John Smith</p>
-              <p class="subtitle is-6">@johnsmith</p>
-              
-            </div>
-          </div>
-      
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. 
+          <li>
+            <div class="card">
 
-            
-            <h4>test</h4> <span>test</span><p>phone number</p>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          </div>
-        </div>
-        
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+                  </div>
+                </div>
+
+                <div class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                  <a href="#">#css</a> <a href="#">#responsive</a>
+                  <br>
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="card">
+
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="Placeholder image">
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4">John Smith</p>
+                    <p class="subtitle is-6">@johnsmith</p>
+
+                  </div>
+                </div>
+                <div class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                  <span>801-999-3456</span>
+                </div>
+
+                <div class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span>ladofmusic@gmail.com</span>
+                </div>
+                <div class="icon-text">
+                  <span class="icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </span>
+                <div>
+                  <div>795 E. 620 N.</div> 
+                  
+                  <div> Provo, UT 84606 </div>
+                </div>
+                </div>
+                <br>
+                <div class="has-text-weight-medium">Notes</div>
+                <div class="content">
+                  <p>
+                    these are some great examples of some text have these guys Paid yet?
+                  </p>
+
+                </div>
+              </div>
+
+            </div>
+          </li>
+        </ul>
       </div>
-    </li>
-    </ul>
+
     </div>
 
-  </div>
-  
-  <script type="text/javascript" src="index.js"></script>
-  </body>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
 </html>
