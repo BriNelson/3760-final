@@ -52,10 +52,17 @@ const saveClient = (arr) => {
 
   }
 
-    (async () => {
-      let results = await fetch(".netlify/functions/save_client").then(response => response.json())
+  fetch(".netlify/functions/save_client", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newClient),
+
+  }).then(res => res.json())
+  .then(data => console.log(data))
       console.log(results)
-  })
+  
   arr.push(newClient)
 }
 
