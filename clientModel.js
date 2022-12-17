@@ -8,6 +8,7 @@ const WorkClientSchema = new Schema({
     firstName: String,
     lastName: String,
     phoneNumber: String,
+    emailAddress: String,
     address: String,
     city: String,
     state: String,

@@ -30,7 +30,7 @@ const saveClient = (arr) => {
   const firstName = document.querySelector('#firstNameInput').value
   const lastName = document.querySelector('#lastNameInput').value
   const phoneNumber = document.querySelector('#phoneInput').value
-  const email = document.querySelector('#emailInput').value
+  const emailAddress = document.querySelector('#emailInput').value
   const address = document.querySelector('#streetInput').value
   const city = document.querySelector('#cityInput').value
   const state = document.querySelector('#stateInput').value
@@ -43,11 +43,11 @@ const saveClient = (arr) => {
     firstName: firstName,
     lastName: lastName,
     phoneNumber: phoneNumber,
-    email: email,
+    emailAddress: emailAddress,
     address: address,
     city: city,
     state: state,
-    zip: zipCode,
+    zipCode: zipCode,
     contractor: contractor,
     invoicePaid: false,
     notes: notes
@@ -115,10 +115,81 @@ const printSearchResult = (arr) => {
     mediaSubtitle.appendChild(document.createTextNode(element.phoneNumber))
     mediaContentDiv.appendChild(mediaSubtitle)
 
-    const mediaSecondSubtitle = document.createElement('p')
-    mediaSecondSubtitle.classList.add('subtitle', 'is-6')
-    mediaSecondSubtitle.appendChild(document.createTextNode(element.email))
-    mediaContentDiv.appendChild(mediaSecondSubtitle)
+    // ─── Phone Icon ──────────────────────────────────────────────
+
+    
+    const phoneIconText = document.createElement('div')
+    phoneIconText.classList.add('icon-text')
+    cardContentItem.appendChild(phoneIconText)
+
+    const phoneIcon = document.createElement('span')
+    phoneIcon.classList.add('icon')
+    phoneIconText.appendChild(phoneIcon)
+
+    const fontAwesomeIcon = document.createElement('i')
+    fontAwesomeIcon.classList.add('fas', 'fa-phone')
+    phoneIcon.appendChild(fontAwesomeIcon)
+
+    const phoneNumberText = document.createElement('span')
+    phoneNumberText.appendChild(document.createTextNode(element.phoneNumber))
+    phoneIconText.appendChild(phoneNumberText)
+
+
+
+  // ─── Email Icon ──────────────────────────────────────────────
+
+    
+  const emailIconText = document.createElement('div')
+  emailIconText.classList.add('icon-text')
+  cardContentItem.appendChild(emailIconText)
+
+  const emailIcon = document.createElement('span')
+  emailIcon.classList.add('icon')
+  emailIconText.appendChild(emailIcon)
+
+  const emailFontAwesomeIcon = document.createElement('i')
+  emailFontAwesomeIcon.classList.add('fas', 'fa-envelope')
+  emailIcon.appendChild(emailFontAwesomeIcon)
+
+  const emailText = document.createElement('span')
+  emailText.appendChild(document.createTextNode(element.emailAddress))
+    emailIconText.appendChild(emailText)
+    
+    // ─── Location Icon ───────────────────────────────────────────
+
+
+
+    const locationIconText = document.createElement('div')
+  locationIconText.classList.add('icon-text')
+  cardContentItem.appendChild(locationIconText)
+
+  const locationIcon = document.createElement('span')
+  locationIcon.classList.add('icon')
+  locationIconText.appendChild(locationIcon)
+
+  const locationFontAwesomeIcon = document.createElement('i')
+  locationFontAwesomeIcon.classList.add('fas', 'fa-map-marker-alt')
+    locationIcon.appendChild(locationFontAwesomeIcon)
+    
+    const addressContainer = document.createElement('div')
+    locationIconText.appendChild(addressContainer)
+
+
+
+  const streetAdressText = document.createElement('div')
+ streetAdressText.appendChild(document.createTextNode(element.address))
+    addressContainer.appendChild(streetAdressText)
+    
+    const stateAdressText = document.createElement('div')
+    stateAdressText.appendChild(document.createTextNode(element.city + ', ' + element.state +' ' + element.zipCode))
+       addressContainer.appendChild(stateAdressText)
+
+
+
+
+
+
+
 
     const cardInfoContent = document.createElement('div')
     cardInfoContent.classList.add('content')

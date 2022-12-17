@@ -43,6 +43,7 @@ const handler = async (event) => {
   const clientSave = new WorkClientSchema({
     firstName: newData.firstName,
     lastName: newData.lastName,
+    emailAddress: newData.emailAddress,
     phoneNumber: newData.phoneNumber,
     address: newData.address,
     city: newData.city,
