@@ -11,17 +11,19 @@ const clientData = [
 // getNewsButton.addEventListener('click', () => {
 //     fetchNews()
 // })
+const getClients = async () => {
+  let res = await fetch('.netlify/functions/get_clients')
+  let data = await res.json();
 
-// const createItem = (itemName, elementTag, classOne, classTwo, classThree, appendItem) => {
-//   itemName = document.createElement(elementTag)
-//   itemName.classlist.add(classOne, classTwo, classThree)
-//   appendItem.appendChild(itemName)
-// }
+  return data
+};
+
 const saveBtn = document.querySelector('#saveBtn')
 
 saveBtn.addEventListener('click', () => {
+  document.querySelector("#searchList").innerHTML = "";
   saveClient(clientData)
-  printSearchResult(clientData)
+  // printSearchResult(clientData)
   console.log(console.log(clientData))
 })
 const saveClient = (arr) => {
@@ -59,14 +61,17 @@ const saveClient = (arr) => {
     },
     body: JSON.stringify(newClient),
 
-  }).then(res => res.json())
-  .then(data => console.log(data))
-      console.log(results)
+  })
   
+      getClients().then(clientList => {
+        printSearchResult(clientList);
+        ;
+      })
   arr.push(newClient)
 }
 
 const printSearchResult = (arr) => {
+  
   arr.forEach(element => {
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
@@ -120,8 +125,11 @@ const printSearchResult = (arr) => {
     cardContentItem.appendChild(cardInfoContent)
   })
 }
+getClients().then(clientList => {
+  printSearchResult(clientList);
+  ;
+})
 
-printSearchResult(clientData)
 
 // modal logic from bulma website
 document.addEventListener('DOMContentLoaded', () => {
