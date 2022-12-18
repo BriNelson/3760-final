@@ -118,9 +118,22 @@ const printSearchResult = (arr) => {
     
     
     
-
+// ─── Paid Button ─────────────────────────────────────────────────────────────
+    let paidStatus = ''
+    let tagColor = ''
+    let tagIcon = ''
+    if (element.invoicePaid === false) {
+      paidStatus = "UNPAID"
+      tagColor = 'is-danger'
+      tagIcon = 'fa-exclamation-triangle'
+    }
+    if (element.invoicePaid === true) {
+      paidStatus = "PAID"
+      tagColor = 'is-success'
+      tagIcon = 'fa-check'
+    }
     const paidButton = document.createElement('span')
-    paidButton.classList.add('tag', 'button', 'is-danger', 'mt-0')
+    paidButton.classList.add('tag', 'button', tagColor , 'mt-0')
     mediaContentDiv.appendChild(paidButton)
 
     const paidButtonIconText = document.createElement('div')
@@ -132,13 +145,29 @@ const printSearchResult = (arr) => {
     paidButtonIconText.appendChild(paidButtonIcon)
 
     const paidButtonFontAwesome = document.createElement('i')
-    paidButtonFontAwesome.classList.add('fas', 'fa-exclamation-triangle')
+    paidButtonFontAwesome.classList.add('fas', tagIcon)
     paidButtonIcon.appendChild(paidButtonFontAwesome)
 
     const paidButtonText = document.createElement('span')
-    paidButtonText.appendChild(document.createTextNode('UNPAID'))
+    paidButtonText.appendChild(document.createTextNode(paidStatus))
     paidButtonIconText.appendChild(paidButtonText)
 
+    paidButton.addEventListener('click', (event) => {
+      
+      
+      
+      
+      // const unPaidButtonText = document.createElement('span')
+      // unPaidButtonText.appendChild(document.createTextNode('paid'))
+      
+      // paidButtonText.replaceWith(unPaidButtonText)
+
+
+      // paidButtonFontAwesome.classList.replace('fa-exclamation-triangle', 'fa-check' )
+      // paidButton.classList.replace('is-danger', 'is-success')
+      // // paidButtonText.appendChild(document.createTextNode(test))
+      // console.log("test")
+    })
 
     // ─── Phone Icon ──────────────────────────────────────────────
 
