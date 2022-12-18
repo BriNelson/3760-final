@@ -36,9 +36,9 @@ const saveClient = (arr) => {
   const state = document.querySelector('#stateInput').value
   const zipCode = document.querySelector('#zipInput').value
   const contractor = document.querySelector('#contractorInput').value
-  // const invoicePaid = document.querySelector('').value
+  
   const notes = document.querySelector('#notesInput').value
-
+const invoicePaid = document.querySelector('input[name="paid"]:checked').value
   const newClient = {
     firstName: firstName,
     lastName: lastName,
@@ -49,7 +49,7 @@ const saveClient = (arr) => {
     state: state,
     zipCode: zipCode,
     contractor: contractor,
-    invoicePaid: false,
+    invoicePaid: invoicePaid,
     notes: notes
 
   }
@@ -71,7 +71,7 @@ const saveClient = (arr) => {
 }
 
 const printSearchResult = (arr) => {
-  document.querySelector("#searchList").innerHTML = "";
+  // document.querySelector("#searchList").innerHTML = "";
   arr.forEach(element => {
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
@@ -114,7 +114,8 @@ const printSearchResult = (arr) => {
     mediaTitle.classList.add('title', 'is-4')
     mediaTitle.appendChild(document.createTextNode(element.firstName + ' ' + element.lastName))
     mediaContentDiv.appendChild(mediaTitle)
-
+// Paid check marker
+    
     const mediaSubtitle = document.createElement('p')
     mediaSubtitle.classList.add('subtitle', 'is-6')
     mediaSubtitle.appendChild(document.createTextNode(element.phoneNumber))
@@ -186,12 +187,13 @@ const printSearchResult = (arr) => {
     addressContainer.appendChild(streetAdressText)
     
     const stateAdressText = document.createElement('div')
+    stateAdressText.classList.add('mt-0')
     stateAdressText.appendChild(document.createTextNode(element.city + ', ' + element.state +' ' + element.zipCode))
        addressContainer.appendChild(stateAdressText)
 
 
 
-
+ 
 
 
 // ─── Client Notes ────────────────────────────────────────────────────────────
