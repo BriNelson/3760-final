@@ -71,19 +71,24 @@ const saveClient = (arr) => {
 }
 
 const printSearchResult = (arr) => {
-  
+  document.querySelector("#searchList").innerHTML = "";
   arr.forEach(element => {
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
     searchList.appendChild(clientListItem)
 
     const cardItem = document.createElement('div')
-    cardItem.classList.add('card')
+    cardItem.classList.add('card', 'is-flex', 'card', 'is-flex', 'is-justify-content-space-between'  )
     clientListItem.appendChild(cardItem)
+
+    const cardContentFlexwrap = document.createElement('div')
+    cardContentFlexwrap.classList.add('is-flex')
+    cardItem.appendChild(cardContentFlexwrap)
+
 
     const cardContentItem = document.createElement('div')
     cardContentItem.classList.add('card-content')
-    cardItem.appendChild(cardContentItem)
+    cardContentFlexwrap.appendChild(cardContentItem)
 
     const cardMediaItem = document.createElement('div')
     cardMediaItem.classList.add('media')
@@ -189,13 +194,54 @@ const printSearchResult = (arr) => {
 
 
 
+// ─── Client Notes ────────────────────────────────────────────────────────────
+
+    const notesHeading = document.createElement('div')
+    notesHeading.classList.add('has-text-weight-medium','mt-3')
+    notesHeading.appendChild(document.createTextNode('Notes'))
+    cardContentItem.appendChild(notesHeading)
+
+
 
 
     const cardInfoContent = document.createElement('div')
     cardInfoContent.classList.add('content')
+    cardInfoContent.appendChild(document.createTextNode(element.notes))
     cardContentItem.appendChild(cardInfoContent)
+
+// ─── Delete Button ───────────────────────────────────────────────────────────
+
+
+    const buttonFlexWrapper = document.createElement('div')
+    buttonFlexWrapper.classList.add('is-flex')
+    cardItem.appendChild(buttonFlexWrapper)
+
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete', 'is-large', 'mt-2', 'mr-2')
+    buttonFlexWrapper.appendChild(deleteButton)
+
+    deleteButton.addEventListener('click', (event) => {
+      // console.log(element._id)
+
+      fetch(".netlify/functions/delete_clients?_id=" + element._id, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        // body: JSON.stringify(element._id),
+    
+      })
+      getClients().then(clientList => {
+        printSearchResult(clientList);
+        ;
+      })
+          
+    })
+
   })
 }
+
+
 getClients().then(clientList => {
   printSearchResult(clientList);
   ;
