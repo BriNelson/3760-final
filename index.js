@@ -111,15 +111,34 @@ const printSearchResult = (arr) => {
     cardMediaItem.appendChild(mediaContentDiv)
 
     const mediaTitle = document.createElement('p')
-    mediaTitle.classList.add('title', 'is-4')
+    mediaTitle.classList.add('title', 'is-4', 'mb-1')
     mediaTitle.appendChild(document.createTextNode(element.firstName + ' ' + element.lastName))
     mediaContentDiv.appendChild(mediaTitle)
 // Paid check marker
     
-    const mediaSubtitle = document.createElement('p')
-    mediaSubtitle.classList.add('subtitle', 'is-6')
-    mediaSubtitle.appendChild(document.createTextNode(element.phoneNumber))
-    mediaContentDiv.appendChild(mediaSubtitle)
+    
+    
+
+    const paidButton = document.createElement('span')
+    paidButton.classList.add('tag', 'button', 'is-danger', 'mt-0')
+    mediaContentDiv.appendChild(paidButton)
+
+    const paidButtonIconText = document.createElement('div')
+    paidButtonIconText.classList.add('icon-text')
+    paidButton.appendChild(paidButtonIconText)
+
+    const paidButtonIcon = document.createElement('span')
+    paidButtonIcon.classList.add('icon', 'mt-1')
+    paidButtonIconText.appendChild(paidButtonIcon)
+
+    const paidButtonFontAwesome = document.createElement('i')
+    paidButtonFontAwesome.classList.add('fas', 'fa-exclamation-triangle')
+    paidButtonIcon.appendChild(paidButtonFontAwesome)
+
+    const paidButtonText = document.createElement('span')
+    paidButtonText.appendChild(document.createTextNode('UNPAID'))
+    paidButtonIconText.appendChild(paidButtonText)
+
 
     // ─── Phone Icon ──────────────────────────────────────────────
 
