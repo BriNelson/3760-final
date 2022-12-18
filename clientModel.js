@@ -14,6 +14,7 @@ const WorkClientSchema = new Schema({
     state: String,
     zipCode: String,
     contractor: String,
+    invoicePaid: Boolean,
     notes: String
 
 

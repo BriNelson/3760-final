@@ -214,11 +214,11 @@
                 <div class="field is-narrow">
                   <div class="control">
                     <label class="radio">
-                      <input type="radio" name="member">
+                      <input type="radio" name="paid" value=true>
                       Yes
                     </label>
                     <label class="radio">
-                      <input type="radio" name="member">
+                      <input type="radio" name="paid" value=false checked>
                       No
                     </label>
                   </div>
@@ -310,7 +310,7 @@
           </li>
 
           <li>
-            <div class="card is-flex is-justify-content-space-between">
+            <div class="card is-flex is-justify-content-space-between mb-2">
               
             <div class="is-flex">
               <div class="card-content">
@@ -322,8 +322,13 @@
                     </figure>
                   </div>
                   <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
+                    <p class="title is-4 mb-1">John Smith</p>
+                    <span class="tag  button is-danger mt-0"><div class="icon-text">
+                      <span class="icon mt-1">
+                        <i class="fas fa-exclamation-triangle"></i>
+                      </span>
+                      <span>UNPAID</span>
+                    </div></span>
 
                   </div>
                 </div>

@@ -50,6 +50,7 @@ const handler = async (event) => {
     state: newData.state,
     zipCode: newData.zipCode,
     contractor: newData.contractor,
+    invoicePaid: newData.invoicePaid,
     notes: newData.notes
 
   })
