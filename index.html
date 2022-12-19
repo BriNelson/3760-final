@@ -280,11 +280,11 @@
 
           </button>
           
-          <div class="select is-primary">
-            <select>
-              <option>All Paid Statuses</option>
-              <option>Paid Clients</option>
-              <option>Unpaid Clients</option>
+          <div class="select is-primary" >
+            <select id="paidStatusDropdown">
+              <option value="all">All Paid Statuses</option>
+              <option value='true' >Paid Clients</option>
+              <option value='false'>Unpaid Clients</option>
             </select>
           </div>
           <!-- City Search -->
@@ -302,6 +302,8 @@
               <option>Robison</option>
             </select>
           </div>
+
+          <button class="button is-primary" id="sortButton">sort</button>
 
         </div>
       </div>

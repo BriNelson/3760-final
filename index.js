@@ -1,16 +1,4 @@
 
-const clientData = [
-]
-
-// const saveNewsItem = (newsItem) => {
-
-// }
-
-// const getNewsButton = document.querySelector('#callData')
-
-// getNewsButton.addEventListener('click', () => {
-//     fetchNews()
-// })
 const getClients = async () => {
   let res = await fetch('.netlify/functions/get_clients')
   let data = await res.json();
@@ -44,6 +32,25 @@ function logState(params) {
         console.log(params)
 }
 
+const sortButton = document.querySelector('#sortButton')
+sortButton.addEventListener('click', () => {
+
+ let selectElement = document.querySelector('#paidStatusDropdown')
+ let output = selectElement.options[selectElement.selectedIndex].value;
+  console.log(output);
+
+  fetch(".netlify/functions/sort_items?invoicePaid=" + output, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+    //  body: JSON.stringify(output),
+
+  }).then((response) => response.json())
+  .then((data) => printSearchResult(data));
+
+})
+
 const saveBtn = document.querySelector('#saveBtn')
 
 saveBtn.addEventListener('click', () => {
@@ -62,7 +69,11 @@ const saveClient = (arr) => {
   const state = document.querySelector('#stateInput').value
   const zipCode = document.querySelector('#zipInput').value
   const contractor = document.querySelector('#contractorInput').value
-  
+  const notes = document.querySelector('#notesInput').value
+  const invoicePaid = document.querySelector('input[name="paid"]:checked').value
+ 
+ 
+  // ─── Random Picture Generator ────────────────────────────────────────
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -71,8 +82,7 @@ const saveClient = (arr) => {
   let clientImage = 'https://xsgames.co/randomusers/assets/avatars/male/' + randomPictureNumer + '.jpg'
 
 
-  const notes = document.querySelector('#notesInput').value
-const invoicePaid = document.querySelector('input[name="paid"]:checked').value
+  
   const newClient = {
     firstName: firstName,
     lastName: lastName,
@@ -102,7 +112,7 @@ const invoicePaid = document.querySelector('input[name="paid"]:checked').value
         printSearchResult(clientList);
         ;
       })
-  arr.push(newClient)
+  
 }
 
 const printSearchResult = (arr) => {
