@@ -19,11 +19,14 @@ mongoose.connect(
 const handler = async (event) => {
   console.log(event.queryStringParameters.invoicePaid)
   
+
   let clients = ''
-
-
-   clients = await WorkClientSchema.find(event.queryStringParameters)
- 
+  if (event.queryStringParameters.invoicePaid !== 'all') {
+    clients = await WorkClientSchema.find(event.queryStringParameters)
+  }
+  if (event.queryStringParameters.invoicePaid === 'all') {
+    clients = await WorkClientSchema.find()
+  }
   console.log(clients)
   return {
     statusCode: 200,

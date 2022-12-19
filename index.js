@@ -54,10 +54,9 @@ sortButton.addEventListener('click', () => {
 const saveBtn = document.querySelector('#saveBtn')
 
 saveBtn.addEventListener('click', () => {
-  document.querySelector("#searchList").innerHTML = "";
-  saveClient(clientData)
-  // printSearchResult(clientData)
-  console.log(console.log(clientData))
+ 
+  saveClient()
+  
 })
 const saveClient = (arr) => {
   const firstName = document.querySelector('#firstNameInput').value
@@ -118,6 +117,12 @@ const saveClient = (arr) => {
 const printSearchResult = (arr) => {
   document.querySelector("#searchList").innerHTML = "";
   arr.forEach(element => {
+    const citiesList = document.querySelector('#cityDropdown')
+    const cityOption = document.createElement('option')
+    cityOption.appendChild(document.createTextNode(element.city))
+    citiesList.appendChild(cityOption)
+
+
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
     searchList.appendChild(clientListItem)
