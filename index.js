@@ -17,6 +17,32 @@ const getClients = async () => {
 
   return data
 };
+function logState(params) {
+
+  // ─── Map Heading And Container ───────────────────────────────────────
+
+  
+  document.querySelector("#mainContainer").innerHTML = "";
+  const mainContainer = document.querySelector('#mainContainer')
+  mainContainer.classList.add("mt-6")
+  const mapHeading = document.createElement('span')
+  mapHeading.appendChild(document.createTextNode(params.firstName + ' ' + params.lastName + "'s location"))
+  mapHeading.classList.add('is-size-3')
+  mainContainer.appendChild(mapHeading)
+
+
+  // ─── Directions Map ──────────────────────────────────────────────────
+
+  
+  const mapIframe = document.createElement('iframe')
+  mapIframe.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyCloTfnFWI2UH5Q5uuCtW1HbiwdJM22-nQ&q=" + params.address + "," + params.city + "+" + params.state
+  mapIframe.width = "960"
+  mapIframe.height = '400'
+  mapIframe.loading = 'lazy'
+  mainContainer.appendChild(mapIframe)
+
+        console.log(params)
+}
 
 const saveBtn = document.querySelector('#saveBtn')
 
@@ -274,6 +300,8 @@ const printSearchResult = (arr) => {
 
 
 
+
+
   const streetAdressText = document.createElement('div')
  streetAdressText.appendChild(document.createTextNode(element.address))
     addressContainer.appendChild(streetAdressText)
@@ -282,6 +310,20 @@ const printSearchResult = (arr) => {
     stateAdressText.classList.add('mt-0')
     stateAdressText.appendChild(document.createTextNode(element.city + ', ' + element.state +' ' + element.zipCode))
        addressContainer.appendChild(stateAdressText)
+
+// ─── Map Directions Button ───────────────────────────────────────────────────
+    const mapDirectionsButton = document.createElement('button')
+    mapDirectionsButton.classList.add('button', 'is-info', 'is-small')
+    mapDirectionsButton.appendChild(document.createTextNode('See Map Directions'))
+    cardContentItem.appendChild(mapDirectionsButton)
+
+    mapDirectionsButton.addEventListener('click', event => {
+
+      logState(element)
+     console.log(element.city)
+    })
+
+  
 
 
 
