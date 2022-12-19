@@ -13,29 +13,6 @@ mongoose.connect(
   .catch(console.error)
 
 
-// import pkg from 'mongoose';
-// const { model, Schema } = require('mongoose')
-
-
-
-// const WorkClientSchema = new Schema({
-    
-//     firstName: String,
-//     lastName: String,
-//     phoneNumber: String,
-//     address: String,
-//     city: String,
-//     state: String,
-//     zipCode: Number,
-//     contractor: String,
-//     notes: String
-
-
-
-// })
-
-
-// let WorkClient = model("client", WorkClientSchema);
 
 const handler = async (event) => {
   const newData = JSON.parse(event.body)
@@ -51,6 +28,7 @@ const handler = async (event) => {
     zipCode: newData.zipCode,
     contractor: newData.contractor,
     invoicePaid: newData.invoicePaid,
+    clientImage: newData.clientImage,
     notes: newData.notes
 
   })

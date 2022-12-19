@@ -37,6 +37,14 @@ const saveClient = (arr) => {
   const zipCode = document.querySelector('#zipInput').value
   const contractor = document.querySelector('#contractorInput').value
   
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  let randomPictureNumer = getRandomInt(77)
+  let clientImage = 'https://xsgames.co/randomusers/assets/avatars/male/' + randomPictureNumer + '.jpg'
+
+
   const notes = document.querySelector('#notesInput').value
 const invoicePaid = document.querySelector('input[name="paid"]:checked').value
   const newClient = {
@@ -50,6 +58,7 @@ const invoicePaid = document.querySelector('input[name="paid"]:checked').value
     zipCode: zipCode,
     contractor: contractor,
     invoicePaid: invoicePaid,
+    clientImage: clientImage,
     notes: notes
 
   }
@@ -103,6 +112,8 @@ const printSearchResult = (arr) => {
     mediaLeftSection.appendChild(clientPortrait)
 
     const clientImageTag = document.createElement('img')
+    clientImageTag.src = element.clientImage
+    clientPortrait.appendChild(clientImageTag)
     // needs src
     //
 
