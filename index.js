@@ -71,7 +71,7 @@ const invoicePaid = document.querySelector('input[name="paid"]:checked').value
 }
 
 const printSearchResult = (arr) => {
-  // document.querySelector("#searchList").innerHTML = "";
+  document.querySelector("#searchList").innerHTML = "";
   arr.forEach(element => {
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
@@ -153,8 +153,41 @@ const printSearchResult = (arr) => {
     paidButtonIconText.appendChild(paidButtonText)
 
     paidButton.addEventListener('click', (event) => {
+
+      // toggles between true and false
+      if (element.invoicePaid === false) { 
+        
+        element.invoicePaid = true
+        paidStatus = "PAID"
+      tagColor = 'is-success'
+      tagIcon = 'fa-check'
+      }else if (element.invoicePaid === true) { 
+        element.invoicePaid = false
+        
+        paidStatus = "PAID"
+      tagColor = 'is-success'
+      tagIcon = 'fa-check'
+      }
+      
+
+
+      fetch(".netlify/functions/paid_invoice?_id=" + element._id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(element.invoicePaid),
+    
+      })
+
       
       
+      getClients().then(clientList => {
+        printSearchResult(clientList);
+        ;
+      })
+        
+    
       
       
       // const unPaidButtonText = document.createElement('span')
