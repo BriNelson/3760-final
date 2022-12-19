@@ -17,10 +17,15 @@ mongoose.connect(
     console.log(event.body)
     let id = event.queryStringParameters._id
     // await WorkClientSchema.deleteOne(deletedItem)
+
+
      await WorkClientSchema.findByIdAndUpdate(id,{ invoicePaid: event.body })
-    
+//     setTimeout(() => {
+//   console.log("Delayed for 1 second.");
+// }, "1000")
     return {
       statusCode: 200,
+      
       
     }
   }
