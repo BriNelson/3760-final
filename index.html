@@ -274,12 +274,13 @@
 
       <div class="container is-max-desktop">
         <div class="notification is-primary is-light">
-          <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
+          <div class="field is-horizontal">
+          <button class="js-modal-trigger button is-primary mr-6" data-target="modal-js-example">
             Add a new client</button>
           
-
-
-            <div class="field has-addons">
+            
+            <!-- Paid Dropdown -->
+            <div class="field has-addons mr-2">
               <div class="control">
                 <div class="select is-primary" >
                   <select id="paidStatusDropdown">
@@ -296,24 +297,19 @@
 
 
 
-
-          <!-- <div class="select is-primary" >
-            <select id="paidStatusDropdown">
-              <option value="all">All Paid Statuses</option>
-              <option value='true' >Paid Clients</option>
-              <option value='false'>Unpaid Clients</option>
-            </select>
-          </div>
-          <button class="button is-primary" id="sortButton">Sort Paid</button> -->
-
           <!-- City drop Down-->
-          <div class="select is-primary">
-            <select id="cityDropdown">
-              <option value="all">All Cities</option>
-           
-            </select>
+          <div class="field has-addons mr-1">
+            <div class="control">
+              <div class="select is-primary">
+                <select id="cityDropdown">
+                  <option value="all">All Cities</option>
+                </select>
+              </div>
+              </div>
+            <div class="control">
+              <button class="button is-primary" id="sortCitiesButton">Sort Cities</button>
+            </div>
           </div>
-          <button class="button is-primary" id="sortCitiesButton">Sort Cities</button>
           
           
           <!-- Contractor drop -->
@@ -324,7 +320,7 @@
               <option>Robison</option>
             </select>
           </div>
-
+        </div>
           
 
         </div>
@@ -380,7 +376,7 @@
                   <span>ladofmusic@gmail.com</span>
                 </div>
                 <div class="icon-text">
-                  <span class="icon">
+                  <span class="icon" >
                     <i class="fas fa-map-marker-alt"></i>
                   </span>
                 <div>
@@ -390,8 +386,16 @@
                 </div>
                 </div>
                 <button class="button is-info is-small">See Map Directions</button>
-                <div class="has-text-weight-medium mt-1">Notes</div>
+                <div class="has-text-weight-medium mt-1">Notes
+                  <span class="icon is-small" id="editNotesButton">
+                    <a><i class="far fa-edit "></i></a>
+                    
+                  </span>
+                
+                </div>
+                <textarea class="textarea is-primary" placeholder="Primary textarea"></textarea>
                 <div class="content">
+                  
                 </div>
                 
               </div>

@@ -411,14 +411,74 @@ const printSearchResult = (arr) => {
     notesHeading.classList.add('has-text-weight-medium','mt-3')
     notesHeading.appendChild(document.createTextNode('Notes'))
     cardContentItem.appendChild(notesHeading)
+// Icon button stuff
+    const editNotesIcon = document.createElement('span')
+    editNotesIcon.classList.add('icon', 'is-small','ml-1')
+    notesHeading.appendChild(editNotesIcon)
+
+    const iconLink = document.createElement('a')
+    editNotesIcon.appendChild(iconLink)
+
+    const editNotesFontAwesome = document.createElement('i')
+    editNotesFontAwesome.classList.add('far', 'fa-edit')
+    iconLink.appendChild(editNotesFontAwesome)
+
+ // Save Icon
+ const saveNotesIcon = document.createElement('span')
+    saveNotesIcon.classList.add('icon', 'is-small','ml-1')
+    
+
+    const saveIconLink = document.createElement('a')
+    saveNotesIcon.appendChild(saveIconLink)
+
+    const saveNotesFontAwesome = document.createElement('i')
+    saveNotesFontAwesome.classList.add('far', 'fa-save')
+    saveIconLink.appendChild(saveNotesFontAwesome)
+   
 
 
+// notes text area that gets swapped
+    const cardNoteTextArea = document.createElement('textarea')
+    cardNoteTextArea.classList.add('textarea', 'is-primary')
 
 
     const cardInfoContent = document.createElement('div')
     cardInfoContent.classList.add('content')
     cardInfoContent.appendChild(document.createTextNode(element.notes))
     cardContentItem.appendChild(cardInfoContent)
+
+    editNotesIcon.addEventListener('click', () => {
+      console.log('test')
+      cardInfoContent.replaceWith(cardNoteTextArea)
+      editNotesIcon.replaceWith(saveNotesIcon)
+    }
+    )
+    
+    //save note edit
+    saveNotesIcon.addEventListener('click', () => {
+      
+      cardNoteTextArea.replaceWith(cardInfoContent)
+      saveNotesIcon.replaceWith(editNotesIcon)
+      console.log(cardNoteTextArea.value)
+
+      fetch(".netlify/functions/update_notes?_id=" + element._id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(cardNoteTextArea.value),
+    
+      })
+
+      
+      
+      getClients().then(clientList => {
+        printSearchResult(clientList);
+        ;
+      })
+
+    }
+)
 
 // ─── Map ─────────────────────────────────────────────────────────────────────
 
