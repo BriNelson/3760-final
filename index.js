@@ -87,7 +87,7 @@ const printSearchResult = (arr) => {
     searchList.appendChild(clientListItem)
 
     const cardItem = document.createElement('div')
-    cardItem.classList.add('card', 'is-flex', 'card', 'is-flex', 'is-justify-content-space-between'  )
+    cardItem.classList.add('card', 'is-flex', 'card', 'is-flex', 'is-justify-content-space-between', 'mt-4'  )
     clientListItem.appendChild(cardItem)
 
     const cardContentFlexwrap = document.createElement('div')
@@ -303,6 +303,16 @@ const printSearchResult = (arr) => {
     cardInfoContent.appendChild(document.createTextNode(element.notes))
     cardContentItem.appendChild(cardInfoContent)
 
+// ─── Map ─────────────────────────────────────────────────────────────────────
+
+
+    const mapDiv = document.createElement('div')
+    mapDiv.classList.add('is-flex')
+    cardItem.appendChild(mapDiv)
+
+    const staticMap = document.createElement('img')
+    staticMap.src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + element.city + ',' + element.state + '&zoom=14&size=750x300&key=AIzaSyCloTfnFWI2UH5Q5uuCtW1HbiwdJM22-nQ'
+    mapDiv.appendChild(staticMap)
 // ─── Delete Button ───────────────────────────────────────────────────────────
 
 
