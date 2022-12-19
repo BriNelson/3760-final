@@ -275,25 +275,48 @@
       <div class="container is-max-desktop">
         <div class="notification is-primary is-light">
           <button class="js-modal-trigger button is-primary" data-target="modal-js-example">
-            Add a new client
-
-
-          </button>
+            Add a new client</button>
           
-          <div class="select is-primary" >
+
+
+            <div class="field has-addons">
+              <div class="control">
+                <div class="select is-primary" >
+                  <select id="paidStatusDropdown">
+                    <option value="all">All Paid Statuses</option>
+                    <option value='true' >Paid Clients</option>
+                    <option value='false'>Unpaid Clients</option>
+                  </select>
+                </div>
+              </div>
+              <div class="control">
+                <button class="button is-primary" id="sortButton">Sort Paid</button>
+              </div>
+            </div>
+
+
+
+
+          <!-- <div class="select is-primary" >
             <select id="paidStatusDropdown">
               <option value="all">All Paid Statuses</option>
               <option value='true' >Paid Clients</option>
               <option value='false'>Unpaid Clients</option>
             </select>
           </div>
-          <!-- City Search -->
+          <button class="button is-primary" id="sortButton">Sort Paid</button> -->
+
+          <!-- City drop Down-->
           <div class="select is-primary">
             <select id="cityDropdown">
               <option value="all">All Cities</option>
            
             </select>
           </div>
+          <button class="button is-primary" id="sortCitiesButton">Sort Cities</button>
+          
+          
+          <!-- Contractor drop -->
           <div class="select is-primary">
             <select>
               <option>All Contractors</option>
@@ -302,7 +325,7 @@
             </select>
           </div>
 
-          <button class="button is-primary" id="sortButton">sort</button>
+          
 
         </div>
       </div>

@@ -34,6 +34,9 @@ function logState(params) {
         console.log(params)
 }
 
+// ─── Sort paid button ──────────────────────────────────────────────────────────────
+
+
 const sortButton = document.querySelector('#sortButton')
 sortButton.addEventListener('click', () => {
 
@@ -52,6 +55,33 @@ sortButton.addEventListener('click', () => {
   .then((data) => printSearchResult(data));
 
 })
+
+// ─── Sort cities button ──────────────────────────────────────────────────────────────
+
+
+const sortCitiesButton = document.querySelector('#sortCitiesButton')
+sortCitiesButton.addEventListener('click', () => {
+
+ let selectElement = document.querySelector('#cityDropdown')
+ let output = selectElement.options[selectElement.selectedIndex].value;
+  console.log(output);
+
+  fetch(".netlify/functions/sort_cities?city=" + output, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+    //  body: JSON.stringify(output),
+
+  }).then((response) => response.json())
+  .then((data) => printSearchResult(data));
+
+})
+
+
+
+// ─── Save Client Button And Function ─────────────────────────────────────────
+
 
 const saveBtn = document.querySelector('#saveBtn') 
 
@@ -119,6 +149,8 @@ const saveClient = (arr) => {
 // ─── Print Cities Dropdown ───────────────────────────────────────────────────
 
 const printCitiesDropdown = (arr) => {
+
+  document.querySelector("#cityDropdown").innerHTML = "";
   arr.forEach(element => {
     
   
