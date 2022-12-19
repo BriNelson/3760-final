@@ -1,4 +1,6 @@
 
+const citiesDropDownArray =[]
+
 const getClients = async () => {
   let res = await fetch('.netlify/functions/get_clients')
   let data = await res.json();
@@ -114,14 +116,40 @@ const saveClient = (arr) => {
   
 }
 
+// ─── Print Cities Dropdown ───────────────────────────────────────────────────
+
+const printCitiesDropdown = (arr) => {
+  arr.forEach(element => {
+    
+  
+  const citiesList = document.querySelector('#cityDropdown')
+  const cityOption = document.createElement('option')
+    cityOption.appendChild(document.createTextNode(element))
+    cityOption.value = element
+  citiesList.appendChild(cityOption)
+    console.log(element)
+  });
+}
+
+
+
 const printSearchResult = (arr) => {
   document.querySelector("#searchList").innerHTML = "";
+  
+  //trying to avoid going to the database again and excluding repeats.
   arr.forEach(element => {
-    const citiesList = document.querySelector('#cityDropdown')
-    const cityOption = document.createElement('option')
-    cityOption.appendChild(document.createTextNode(element.city))
-    citiesList.appendChild(cityOption)
 
+    if (citiesDropDownArray.some(el => el === element.city) === false) {
+
+      citiesDropDownArray.push(element.city)
+    }
+    
+    // 
+    // const citiesList = document.querySelector('#cityDropdown')
+    // const cityOption = document.createElement('option')
+    // cityOption.appendChild(document.createTextNode(element.city))
+    // citiesList.appendChild(cityOption)
+  
 
     const searchList = document.querySelector('#searchList')
     const clientListItem = document.createElement('li')
@@ -400,6 +428,7 @@ const printSearchResult = (arr) => {
     })
 
   })
+  printCitiesDropdown(citiesDropDownArray)
 }
 
 
