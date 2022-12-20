@@ -10,5 +10,6 @@
 * serverless functions used
 * user can update notes
 * user can update phone number
-  
+* user can update email
+* user can update contractore name
 

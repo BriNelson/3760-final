@@ -230,29 +230,29 @@ const printSearchResult = (arr) => {
 
 
     // Client Edit Icon
-    const clientNameEditIcon = document.createElement('span')
-    clientNameEditIcon.classList.add('icon', 'is-small', 'ml-2')
-    mediaTitle.appendChild(clientNameEditIcon)
+    // const clientNameEditIcon = document.createElement('span')
+    // clientNameEditIcon.classList.add('icon', 'is-small', 'ml-2')
+    // mediaTitle.appendChild(clientNameEditIcon)
 
-    const clientNameEditLink = document.createElement('a')
-    clientNameEditIcon.appendChild(clientNameEditLink)
+    // const clientNameEditLink = document.createElement('a')
+    // clientNameEditIcon.appendChild(clientNameEditLink)
 
-    const clientNameEditFontawesome = document.createElement('i')
-    clientNameEditFontawesome.classList.add('far', 'fa-edit')
-    clientNameEditLink.appendChild(clientNameEditFontawesome)
+    // const clientNameEditFontawesome = document.createElement('i')
+    // clientNameEditFontawesome.classList.add('fa', 'fa-edit')
+    // clientNameEditLink.appendChild(clientNameEditFontawesome)
 
 
-    // Client Save Edit Icon
-    const clientNameSaveIcon = document.createElement('span')
-    clientNameSaveIcon.classList.add('icon', 'is-small', 'ml-2')
+    // // Client Save Edit Icon
+    // const clientNameSaveIcon = document.createElement('span')
+    // clientNameSaveIcon.classList.add('icon', 'is-small', 'ml-2')
     
 
-    const clientNameSaveLink = document.createElement('a')
-    clientNameSaveIcon.appendChild(clientNameSaveLink)
+    // const clientNameSaveLink = document.createElement('a')
+    // clientNameSaveIcon.appendChild(clientNameSaveLink)
 
-    const clientNameSaveFontawesome = document.createElement('i')
-    clientNameSaveFontawesome.classList.add('far', 'fa-Save')
-    clientNameSaveLink.appendChild(clientNameSaveFontawesome)
+    // const clientNameSaveFontawesome = document.createElement('i')
+    // clientNameSaveFontawesome.classList.add('far', 'fa-Save')
+    // clientNameSaveLink.appendChild(clientNameSaveFontawesome)
 
 
 
@@ -379,7 +379,7 @@ const printSearchResult = (arr) => {
     phoneEditIcon.appendChild(phoneEditIconLink)
 
     const phoneEditFontAwesome = document.createElement('i')
-    phoneEditFontAwesome.classList.add('far', 'fa-edit')
+    phoneEditFontAwesome.classList.add('fa', 'fa-edit')
     phoneEditIconLink.appendChild(phoneEditFontAwesome)
 
 //phone save icon
@@ -485,7 +485,7 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     emailEditIcon.appendChild(emailEditIconLink)
 
     const emailEditFontAwesome = document.createElement('i')
-    emailEditFontAwesome.classList.add('far', 'fa-edit')
+    emailEditFontAwesome.classList.add('fa', 'fa-edit')
     emailEditIconLink.appendChild(emailEditFontAwesome)
 
     // email save edit icon
@@ -533,7 +533,90 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     }
     )
 
+   // ─── Contractor ──────────────────────────────────────────────────────
+    
+   const contractorIconText = document.createElement('div')
+   contractorIconText.classList.add('icon-text')
+   cardContentItem.appendChild(contractorIconText)
+ 
+   const contractorIcon = document.createElement('span')
+   contractorIcon.classList.add('icon')
+   contractorIconText.appendChild(contractorIcon)
+ 
+   const contractorFontAwesomeIcon = document.createElement('i')
+   contractorFontAwesomeIcon.classList.add('fas', 'fa-hard-hat')
+   contractorIcon.appendChild(contractorFontAwesomeIcon)
+ 
+   const contractorText = document.createElement('span')
+   contractorText.appendChild(document.createTextNode(element.contractor))
+     contractorIconText.appendChild(contractorText)
+ 
+     // contractor edit field
+     const contractorFieldSpan = document.createElement('span')
+     const contractorEditField = document.createElement('input')
+     contractorEditField.classList.add('input', 'is-small', 'is-rounded')
+     contractorFieldSpan.appendChild(contractorEditField)
+ 
+ 
+     // contractor edit icon
+     const contractorEditIcon = document.createElement('span')
+     contractorEditIcon.classList.add('icon')
+     contractorIconText.appendChild(contractorEditIcon)
+ 
+     const contractorEditIconLink = document.createElement('a')
+     contractorEditIcon.appendChild(contractorEditIconLink)
+ 
+     const contractorEditFontAwesome = document.createElement('i')
+     contractorEditFontAwesome.classList.add('fa', 'fa-edit')
+     contractorEditIconLink.appendChild(contractorEditFontAwesome)
+ 
+     // contractor save edit icon
+     const contractorSaveIcon = document.createElement('span')
+     contractorSaveIcon.classList.add('icon')
+     
+ 
+     const contractorSaveIconLink = document.createElement('a')
+     contractorSaveIcon.appendChild(contractorSaveIconLink)
+ 
+     const contractorSaveFontAwesome = document.createElement('i')
+     contractorSaveFontAwesome.classList.add('far', 'fa-save')
+     contractorSaveIconLink.appendChild(contractorSaveFontAwesome)
+ 
+     contractorEditIcon.addEventListener('click', () => {
+       console.log('test')
+       
+       contractorEditIcon.replaceWith(contractorSaveIcon)
+       contractorText.replaceWith(contractorFieldSpan)
+     }
+     ) 
+ 
+     contractorSaveIcon.addEventListener('click', () => {
+      
+       console.log(contractorEditField.value)
+       fetch(".netlify/functions/update_contractor?_id=" + element._id, {
+         method: 'PATCH',
+         headers: {
+           'Content-Type': 'application/json',
+         },
+         body: JSON.stringify(contractorEditField.value),
+     
+       }).then(() => {fetch('.netlify/functions/get_clients').then((response) => response.json())
+       .then((data) => printSearchResult(data))
+         // do something when the promise is fulfilled
+     })
+          
+     
+       
+     phoneEditIcon.replaceWith(phoneSaveIcon)
+     phoneNumberText.replaceWith(phoneNumberFieldSpan)
+ 
+ 
+       
+     }
+     ) 
+    
 
+   
 
     
     // ─── Location Icon ───────────────────────────────────────────
@@ -602,7 +685,7 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     editNotesIcon.appendChild(iconLink)
 
     const editNotesFontAwesome = document.createElement('i')
-    editNotesFontAwesome.classList.add('far', 'fa-edit')
+    editNotesFontAwesome.classList.add('fa', 'fa-edit')
     iconLink.appendChild(editNotesFontAwesome)
 
  // Save Icon
