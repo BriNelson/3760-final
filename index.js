@@ -324,26 +324,8 @@ const printSearchResult = (arr) => {
         // do something when the promise is fulfilled
     })
 
-      
-      
-    
-        
-    
-      
-      
-      // const unPaidButtonText = document.createElement('span')
-      // unPaidButtonText.appendChild(document.createTextNode('paid'))
-      
-      // paidButtonText.replaceWith(unPaidButtonText)
-
-
-      // paidButtonFontAwesome.classList.replace('fa-exclamation-triangle', 'fa-check' )
-      // paidButton.classList.replace('is-danger', 'is-success')
-      // // paidButtonText.appendChild(document.createTextNode(test))
-      // console.log("test")
     })
 
-    
     // ─── Phone Icon ──────────────────────────────────────────────
 
     
@@ -508,6 +490,7 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     }
     ) 
 
+    //email save
     emailSaveIcon.addEventListener('click', () => {
      
       console.log(emailEditField.value)
