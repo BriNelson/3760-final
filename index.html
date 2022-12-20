@@ -76,7 +76,7 @@
   </div>
 
   <div class="container">
-    <div class="container is-max-desktop">
+    <div class="container">
       <!-- <iframe
       width="600"
       height="450"
@@ -273,7 +273,7 @@
 
 <!-- drop downs -->
 
-      <div class="container is-max-desktop">
+      <div class="container">
         <div class="notification is-primary is-light">
           <div class="field is-horizontal">
           <button class="js-modal-trigger button is-primary mr-6" data-target="modal-js-example">
@@ -299,7 +299,7 @@
 
 
           <!-- City drop Down-->
-          <div class="field has-addons mr-1">
+          <div class="field has-addons mr-2">
             <div class="control">
               <div class="select is-primary">
                 <select id="cityDropdown">
@@ -314,13 +314,20 @@
           
           
           <!-- Contractor drop -->
-          <div class="select is-primary">
-            <select>
-              <option>All Contractors</option>
-              <option>Dent</option>
-              <option>Robison</option>
-            </select>
+          <div class="field has-addons mr-1">
+            <div class="control">
+              <div class="select is-primary">
+                <select id="contractorDropdown">
+                  <option value="all">All Contractors</option>
+                </select>
+              </div>
+              </div>
+            <div class="control">
+              <button class="button is-primary" id="sortContractorsButton">Sort Contractors</button>
+            </div>
           </div>
+
+
         </div>
           
 

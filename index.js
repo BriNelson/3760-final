@@ -1,5 +1,6 @@
 
-const citiesDropDownArray =[]
+const citiesDropDownArray = []
+const contractorDropDownArray = []
 
 const getClients = async () => {
   let res = await fetch('.netlify/functions/get_clients')
@@ -78,6 +79,29 @@ sortCitiesButton.addEventListener('click', () => {
 
 })
 
+// ─── Sort Contractors Button ─────────────────────────────────────────────────
+
+
+const sortContractorsButton = document.querySelector('#sortContractorsButton')
+sortContractorsButton.addEventListener('click', () => {
+
+ let selectElement = document.querySelector('#contractorDropdown')
+ let output = selectElement.options[selectElement.selectedIndex].value;
+  console.log(output);
+
+  fetch(".netlify/functions/sort_contractors?contractor=" + output, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+    //  body: JSON.stringify(output),
+
+  }).then((response) => response.json())
+  .then((data) => printSearchResult(data));
+
+})
+
+
 
 
 // ─── Save Client Button And Function ─────────────────────────────────────────
@@ -150,7 +174,11 @@ const saveClient = (arr) => {
 
 const printCitiesDropdown = (arr) => {
 
+  
+
+
   document.querySelector("#cityDropdown").innerHTML = "";
+
   arr.forEach(element => {
     
   
@@ -163,7 +191,29 @@ const printCitiesDropdown = (arr) => {
   });
 }
 
+// ─── Print Contractor Dropdown ───────────────────────────────────────────────
 
+
+const printContractorDropdown = (arr) => {
+
+  document.querySelector("#contractorDropdown").innerHTML = "";
+  arr.forEach(element => {
+    
+  
+  const contractorList = document.querySelector('#contractorDropdown')
+  const contractorOption = document.createElement('option')
+    contractorOption.appendChild(document.createTextNode(element))
+    contractorOption.value = element
+  contractorList.appendChild(contractorOption)
+    console.log(element)
+  });
+}
+
+
+
+
+
+// ─── Print Search Results ────────────────────────────────────────────────────
 
 const printSearchResult = (arr) => {
   document.querySelector("#searchList").innerHTML = "";
@@ -174,6 +224,11 @@ const printSearchResult = (arr) => {
     if (citiesDropDownArray.some(el => el === element.city) === false) {
 
       citiesDropDownArray.push(element.city)
+    }
+
+    if (contractorDropDownArray.some(el => el === element.contractor) === false && element.contractor !== '') {
+
+      contractorDropDownArray.push(element.contractor)
     }
     
     // 
@@ -769,6 +824,7 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
 
   })
   printCitiesDropdown(citiesDropDownArray)
+  printContractorDropdown(contractorDropDownArray)
 }
 
 
