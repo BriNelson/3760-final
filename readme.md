@@ -1,4 +1,5 @@
 # client Tracker app
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0a6e2a66-6275-4a44-bbff-0e6c7c747c38/deploy-status)](https://app.netlify.com/sites/strong-liger-95885c/deploys)
 * User Can add client (occasional save bug (asycn issue?)) [index.js: line 83 - line 147]
 * user can delete Client [index.js: line 758]
 * user can update the paid status of the clients [index.js: line 262 - line 327]
