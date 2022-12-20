@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const uri = "mongodb+srv://3727137271:admin@cluster0.olv4a.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 const WorkClientSchema = require('../../../clientModel')
 
 mongoose.connect(
