@@ -222,11 +222,40 @@ const printSearchResult = (arr) => {
     mediaContentDiv.classList.add('media-content')
     cardMediaItem.appendChild(mediaContentDiv)
 
+// Client Name
     const mediaTitle = document.createElement('p')
     mediaTitle.classList.add('title', 'is-4', 'mb-1')
     mediaTitle.appendChild(document.createTextNode(element.firstName + ' ' + element.lastName))
     mediaContentDiv.appendChild(mediaTitle)
-// Paid check marker
+
+
+    // Client Edit Icon
+    const clientNameEditIcon = document.createElement('span')
+    clientNameEditIcon.classList.add('icon', 'is-small', 'ml-2')
+    mediaTitle.appendChild(clientNameEditIcon)
+
+    const clientNameEditLink = document.createElement('a')
+    clientNameEditIcon.appendChild(clientNameEditLink)
+
+    const clientNameEditFontawesome = document.createElement('i')
+    clientNameEditFontawesome.classList.add('far', 'fa-edit')
+    clientNameEditLink.appendChild(clientNameEditFontawesome)
+
+
+    // Client Save Edit Icon
+    const clientNameSaveIcon = document.createElement('span')
+    clientNameSaveIcon.classList.add('icon', 'is-small', 'ml-2')
+    
+
+    const clientNameSaveLink = document.createElement('a')
+    clientNameSaveIcon.appendChild(clientNameSaveLink)
+
+    const clientNameSaveFontawesome = document.createElement('i')
+    clientNameSaveFontawesome.classList.add('far', 'fa-Save')
+    clientNameSaveLink.appendChild(clientNameSaveFontawesome)
+
+
+
     
     
     
@@ -440,6 +469,14 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
   emailText.appendChild(document.createTextNode(element.emailAddress))
     emailIconText.appendChild(emailText)
 
+    // email edit field
+    const emailFieldSpan = document.createElement('span')
+    const emailEditField = document.createElement('input')
+    emailEditField.classList.add('input', 'is-small', 'is-rounded')
+    emailFieldSpan.appendChild(emailEditField)
+
+
+    // email edit icon
     const emailEditIcon = document.createElement('span')
     emailEditIcon.classList.add('icon')
     emailIconText.appendChild(emailEditIcon)
@@ -450,6 +487,54 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     const emailEditFontAwesome = document.createElement('i')
     emailEditFontAwesome.classList.add('far', 'fa-edit')
     emailEditIconLink.appendChild(emailEditFontAwesome)
+
+    // email save edit icon
+    const emailSaveIcon = document.createElement('span')
+    emailSaveIcon.classList.add('icon')
+    
+
+    const emailSaveIconLink = document.createElement('a')
+    emailSaveIcon.appendChild(emailSaveIconLink)
+
+    const emailSaveFontAwesome = document.createElement('i')
+    emailSaveFontAwesome.classList.add('far', 'fa-save')
+    emailSaveIconLink.appendChild(emailSaveFontAwesome)
+
+    emailEditIcon.addEventListener('click', () => {
+      console.log('test')
+      
+      emailEditIcon.replaceWith(emailSaveIcon)
+      emailText.replaceWith(emailFieldSpan)
+    }
+    ) 
+
+    emailSaveIcon.addEventListener('click', () => {
+     
+      console.log(emailEditField.value)
+      fetch(".netlify/functions/update_email?_id=" + element._id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailEditField.value),
+    
+      }).then(() => {fetch('.netlify/functions/get_clients').then((response) => response.json())
+      .then((data) => printSearchResult(data))
+        // do something when the promise is fulfilled
+    })
+         
+    
+      
+    phoneEditIcon.replaceWith(phoneSaveIcon)
+    phoneNumberText.replaceWith(phoneNumberFieldSpan)
+
+
+      
+    }
+    )
+
+
+
     
     // ─── Location Icon ───────────────────────────────────────────
 
@@ -585,7 +670,7 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
     cardItem.appendChild(mapDiv)
 
     const staticMap = document.createElement('img')
-    staticMap.src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + element.city + ',' + element.state + '&zoom=14&size=750x300&key=AIzaSyCloTfnFWI2UH5Q5uuCtW1HbiwdJM22-nQ'
+    staticMap.src = 'https://maps.googleapis.com/maps/api/staticmap?center=' + element.city + ',' + element.state + '&zoom=14&size=560x400&key=AIzaSyCloTfnFWI2UH5Q5uuCtW1HbiwdJM22-nQ'
     mapDiv.appendChild(staticMap)
 // ─── Delete Button ───────────────────────────────────────────────────────────
 
