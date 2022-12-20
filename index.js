@@ -314,6 +314,7 @@ const printSearchResult = (arr) => {
       // console.log("test")
     })
 
+    
     // ─── Phone Icon ──────────────────────────────────────────────
 
     
@@ -333,6 +334,88 @@ const printSearchResult = (arr) => {
     phoneNumberText.appendChild(document.createTextNode(element.phoneNumber))
     phoneIconText.appendChild(phoneNumberText)
 
+    // phone edit field
+    const phoneNumberFieldSpan = document.createElement('span')
+    const phoneNumberEditField = document.createElement('input')
+    phoneNumberEditField.classList.add('input', 'is-small', 'is-rounded')
+    phoneNumberFieldSpan.appendChild(phoneNumberEditField)
+
+
+    // phone edit icon
+    const phoneEditIcon = document.createElement('span')
+    phoneEditIcon.classList.add('icon')
+    phoneIconText.appendChild(phoneEditIcon)
+
+    const phoneEditIconLink = document.createElement('a')
+    phoneEditIcon.appendChild(phoneEditIconLink)
+
+    const phoneEditFontAwesome = document.createElement('i')
+    phoneEditFontAwesome.classList.add('far', 'fa-edit')
+    phoneEditIconLink.appendChild(phoneEditFontAwesome)
+
+//phone save icon
+const phoneSaveIcon = document.createElement('span')
+phoneSaveIcon.classList.add('icon')
+
+
+const phoneSaveIconLink = document.createElement('a')
+phoneSaveIcon.appendChild(phoneSaveIconLink)
+
+const phoneSaveFontAwesome = document.createElement('i')
+phoneSaveFontAwesome.classList.add('far', 'fa-save')
+phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
+    
+    
+    phoneEditIcon.addEventListener('click', () => {
+      console.log('test')
+      
+      phoneEditIcon.replaceWith(phoneSaveIcon)
+      phoneNumberText.replaceWith(phoneNumberFieldSpan)
+    }
+    )
+    
+    // save phone listener
+     phoneSaveIcon.addEventListener('click', () => {
+     
+      console.log(phoneNumberEditField.value)
+      fetch(".netlify/functions/update_phone?_id=" + element._id, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(phoneNumberEditField.value),
+    
+      })
+       
+      //  getClients().then(clientList => {
+      //   printSearchResult(clientList);
+      //   ;
+      // })
+      fetch('.netlify/functions/get_clients')
+      
+      
+      
+
+
+      phoneSaveIcon.replaceWith(phoneEditIcon)
+      phoneNumberFieldSpan.replaceWith(phoneNumberText)
+
+
+      
+    }
+    )
+    
+    
+    // saveNotesIcon.addEventListener('click', () => {
+      
+    //   cardNoteTextArea.replaceWith(cardInfoContent)
+    //   saveNotesIcon.replaceWith(editNotesIcon)
+    //   console.log(cardNoteTextArea.value)
+
+      
+
+    // }
+    // )
 
 
   // ─── Email Icon ──────────────────────────────────────────────
@@ -353,6 +436,17 @@ const printSearchResult = (arr) => {
   const emailText = document.createElement('span')
   emailText.appendChild(document.createTextNode(element.emailAddress))
     emailIconText.appendChild(emailText)
+
+    const emailEditIcon = document.createElement('span')
+    emailEditIcon.classList.add('icon')
+    emailIconText.appendChild(emailEditIcon)
+
+    const emailEditIconLink = document.createElement('a')
+    emailEditIcon.appendChild(emailEditIconLink)
+
+    const emailEditFontAwesome = document.createElement('i')
+    emailEditFontAwesome.classList.add('far', 'fa-edit')
+    emailEditIconLink.appendChild(emailEditFontAwesome)
     
     // ─── Location Icon ───────────────────────────────────────────
 

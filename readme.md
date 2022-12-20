@@ -8,4 +8,7 @@
 * user can click and see map location BIG(at top of page when blue button is clicked)
 * user can see small map locations of each person
 * serverless functions used
-* 
+* user can update notes
+* user can update phone number
+  
+
