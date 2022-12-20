@@ -21,10 +21,10 @@ const handler = async (event) => {
   
 
   let clients = ''
-  if (event.queryStringParameters.invoicePaid !== 'all') {
+  if (event.queryStringParameters.contractor !== 'all') {
     clients = await WorkClientSchema.find(event.queryStringParameters)
   }
-  if (event.queryStringParameters.invoicePaid === 'all') {
+  if (event.queryStringParameters.contractor === 'all') {
     clients = await WorkClientSchema.find()
   }
   console.log(clients)

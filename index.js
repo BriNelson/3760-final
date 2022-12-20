@@ -197,14 +197,24 @@ const printCitiesDropdown = (arr) => {
 const printContractorDropdown = (arr) => {
 
   document.querySelector("#contractorDropdown").innerHTML = "";
-  arr.forEach(element => {
-    
-  
   const contractorList = document.querySelector('#contractorDropdown')
   const contractorOption = document.createElement('option')
-    contractorOption.appendChild(document.createTextNode(element))
-    contractorOption.value = element
+  contractorOption.appendChild(document.createTextNode('all-contractors'))
+  contractorOption.value = 'all'
   contractorList.appendChild(contractorOption)
+  
+  arr.forEach(element => {
+
+    const secondContractorOption = document.createElement('option')
+    secondContractorOption.appendChild(document.createTextNode(element))
+    secondContractorOption.value = element
+    contractorList.appendChild(secondContractorOption)
+  
+  
+  
+    
+   
+  
     console.log(element)
   });
 }
