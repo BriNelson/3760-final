@@ -290,14 +290,14 @@ const printSearchResult = (arr) => {
         },
         body: JSON.stringify(element.invoicePaid),
     
-      })
+      }).then(() => {fetch('.netlify/functions/get_clients').then((response) => response.json())
+      .then((data) => printSearchResult(data))
+        // do something when the promise is fulfilled
+    })
 
       
       
-      getClients().then(clientList => {
-        printSearchResult(clientList);
-        ;
-      })
+    
         
     
       
@@ -385,13 +385,16 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
         },
         body: JSON.stringify(phoneNumberEditField.value),
     
-      })
+      }).then(() => {fetch('.netlify/functions/get_clients').then((response) => response.json())
+      .then((data) => printSearchResult(data))
+        // do something when the promise is fulfilled
+    })
        
       //  getClients().then(clientList => {
       //   printSearchResult(clientList);
       //   ;
       // })
-      fetch('.netlify/functions/get_clients')
+      
       
       
       
@@ -562,14 +565,14 @@ phoneSaveIconLink.appendChild(phoneSaveFontAwesome)
         },
         body: JSON.stringify(cardNoteTextArea.value),
     
-      })
+      }).then(() => {fetch('.netlify/functions/get_clients').then((response) => response.json())
+      .then((data) => printSearchResult(data))
+        // do something when the promise is fulfilled
+    })
 
       
       
-      getClients().then(clientList => {
-        printSearchResult(clientList);
-        ;
-      })
+     
 
     }
 )
