@@ -6,6 +6,7 @@
 * user can see list of clients(print function) [index.js: line 168]
 * user can sort by city [index.js: line 59]
 * user can sort by paid status [index.js: line 37]
+* user can sort by contractor [index.js: line 82]
 * user can click and see map location BIG(at top of page when blue button is clicked) [index.js: line 636]
 * user can see small map locations of each person [index.js: line 730]
 * serverless functions used [netlfiy/functions folder]
